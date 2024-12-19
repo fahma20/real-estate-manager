@@ -26,21 +26,3 @@ def add_payment_data():
     amount = float(input("Amount: "))
     payment_date = input("Payment Date (YYYY-MM-DD): ")
     Payment.create(lease_id, amount, payment_date)
-
-def get_all_properties():
-    properties = Property.get_all()
-    for property in properties:
-        print(f"{property.id}: {property.name} located at {property.location} with rent cost {property.rent_cost}")
-
-def get_all_tenants():
-    tenants = Tenant.get_all()
-    for tenant in tenants:
-        print(f"{tenant.id}: {tenant.first_name} {tenant.last_name}, {tenant.phone}, {tenant.email}")
-
-def delete_property():
-    property_id = int(input("Enter property ID to delete: "))
-    Property.delete(property_id)
-
-def delete_tenant():
-    tenant_id = int(input("Enter tenant ID to delete: "))
-    Tenant.delete(tenant_id)
