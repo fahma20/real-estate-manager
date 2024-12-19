@@ -43,6 +43,27 @@ def main():
             rent_cost = input("Rent Cost: ")
             Property.create(name, location, float(rent_cost))
             print("Property added successfully.")
+        elif choice == '2':
+            properties = Property.get_all()
+            for property in properties:
+                print(property)
+        elif choice == '3':
+            property_id = validate_id(input("Enter Property ID to delete: "))
+            if property_id:
+                Property.delete(property_id)
+                print(f"Property {property_id} deleted.")
+        elif choice == '4':
+            name = input("Enter Property Name to search: ")
+            properties = Property.find_by_name(name)
+            for property in properties:
+                print(property)
+        elif choice == '5':
+            first_name = input("First Name: ")
+            last_name = input("Last Name: ")
+            phone = input("Phone: ")
+            email = input("Email: ")
+            Tenant.create(first_name, last_name, phone, email)
+            print("Tenant added successfully.")
         elif choice == '6':
             tenants = Tenant.get_all()
             for tenant in tenants:
